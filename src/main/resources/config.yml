@@ -1,0 +1,75 @@
+#
+# CAE (CreeperArrowEffects) v1.0 by CreeperStudio (LEDev)
+#
+#                 vk.com/creeper_studio
+#               vk.com/leokrech | ledev.ru
+#
+#           Спасибо за то, что выбрали нас! =)
+#
+
+# Название меню с эффектами
+menu-name: "&6 > &f Эффекты стрел"
+
+# Предмет кнопки эффекта в меню
+button-material: PAPER
+
+# Переливание кнопки эффекта в меню, как зачарованного
+enchanted-button: true
+
+# Включить/выключить и настроить эффекты
+effects:
+  fire:
+    enabled: true # Включен - true, выключен - false
+    name: "&6Огонь" # Название в меню и сообщениях
+    particles-count: 30 # Сколько частиц спавнится за раз
+    delay-ticks: 1 # Задержка между спавном частиц в тиках (1 секунда = ~20 тиков)
+  totem:
+    enabled: true
+    name: "&eТотем"
+    particles-count: 20
+    delay-ticks: 1
+  tracer_green:
+    enabled: true
+    name: "&2Трасер"
+    particles-count: 1
+    delay-ticks: 1
+  tracer_lava:
+    enabled: true
+    name: "&cТрасер"
+    particles-count: 1
+    delay-ticks: 1
+  tracer_water:
+    enabled: true
+    name: "&9Трасер"
+    particles-count: 1
+    delay-ticks: 1
+  tracer_crit:
+    enabled: true
+    name: "&6Криты"
+    particles-count: 10
+    delay-ticks: 1
+  tracer_enchantment:
+    enabled: true
+    name: "&5Чары"
+    particles-count: 50
+    delay-ticks: 1
+  tracer_hearts:
+    enabled: true
+    name: "&cСердечки"
+    particles-count: 1
+    delay-ticks: 1
+  smoke:
+    enabled: true
+    name: "&7Дым"
+    particles-count: 20
+    delay-ticks: 1
+  big_smoke:
+    enabled: true
+    name: "&7Большой дым"
+    particles-count: 5
+    delay-ticks: 1
+
+locale:
+  not-enough-permission: "&c | &fНедостаточно прав!"
+  config-reloaded: "&a | &fКонфигурация плагина перезагружена!"
+  effect-set: "&a | &fЭффект успешно установлен!"

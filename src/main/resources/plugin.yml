@@ -1,0 +1,40 @@
+name: CreeperArrowEffects
+version: '${project.version}'
+main: ru.ledev.creeperarroweffects.CAE
+authors: [ LEDev, CreeperStudio ]
+description: Plugin for visual arrows effects
+website: https://vk.com/creeper_studio
+
+commands:
+  creeperarroweffects:
+    description: 'Main CAE command'
+    aliases:
+      - cae
+      - arroweffects
+      - ae
+
+permissions:
+  creeperarroweffects.cmd:
+    description: 'Perm for use /creeperarroweffects'
+  creeperarroweffects.reload:
+    description: 'Perm for use /creeperarroweffects reload'
+  creeperarroweffects.effect.fire:
+    description: 'Perm for use fire effect'
+  creeperarroweffects.effect.totem:
+    description: 'Perm for use totem effect'
+  creeperarroweffects.effect.tracer_green:
+    description: 'Perm for use tracer_green effect'
+  creeperarroweffects.effect.tracer_lava:
+    description: 'Perm for use tracer_lava effect'
+  creeperarroweffects.effect.tracer_water:
+    description: 'Perm for use tracer_water effect'
+  creeperarroweffects.effect.tracer_crit:
+    description: 'Perm for use tracer_crit effect'
+  creeperarroweffects.effect.tracer_enchantment:
+    description: 'Perm for use tracer_enchantment effect'
+  creeperarroweffects.effect.tracer_hearts:
+    description: 'Perm for use tracer_hearts effect'
+  creeperarroweffects.effect.smoke:
+    description: 'Perm for use smoke effect'
+  creeperarroweffects.effect.big_smoke:
+    description: 'Perm for use big_smoke effect'
