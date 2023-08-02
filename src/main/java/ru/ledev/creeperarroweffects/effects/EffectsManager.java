@@ -1,4 +1,4 @@
-package ru.ledev.creeperarroweffects.util;
+package ru.ledev.creeperarroweffects.effects;
 
 import org.bukkit.Particle;
 import org.bukkit.World;
@@ -29,9 +29,7 @@ public class EffectsManager {
         int count = cfg.getInt("effects." + name + ".particles-count", 1);
 
         BukkitTask task = CAE.getInstance().getServer().getScheduler().runTaskTimer(
-                CAE.getInstance(), () -> {
-                    world.spawnParticle(particle, arrow.getLocation(), count);
-                }, delay, delay);
+                CAE.getInstance(), () -> world.spawnParticle(particle, arrow.getLocation(), count), delay, delay);
 
         arrows.add(new ArrowInfo(arrow, task));
     }

@@ -1,5 +1,5 @@
 #
-# CAE (CreeperArrowEffects) v1.0 by CreeperStudio (LEDev)
+# CAE (CreeperArrowEffects) v1.1 by CreeperStudio (LEDev)
 #
 #                 vk.com/creeper_studio
 #               vk.com/leokrech | ledev.ru
@@ -15,6 +15,15 @@ button-material: PAPER
 
 # Переливание кнопки эффекта в меню, как зачарованного
 enchanted-button: true
+
+# Предмет кнопки сброса эффекта
+clear-material: BARRIER
+
+# Название кнопки сброса эффекта
+clear-button-name: "&7Сбросить эффект"
+
+# Переливание кнопки сброса эффекта в меню, как зачарованного
+enchanted-clear-button: true
 
 # Включить/выключить и настроить эффекты
 effects:
@@ -73,3 +82,5 @@ locale:
   not-enough-permission: "&c | &fНедостаточно прав!"
   config-reloaded: "&a | &fКонфигурация плагина перезагружена!"
   effect-set: "&a | &fЭффект успешно установлен!"
+  no-effect-for-clear: "&c | &fУ вас и так нет установленного эффекта!"
+  effect-cleared: "&a | &fЭффект был сброшен!"

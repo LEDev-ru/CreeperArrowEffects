@@ -1,4 +1,4 @@
-package ru.ledev.creeperarroweffects.util;
+package ru.ledev.creeperarroweffects.managers;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import ru.ledev.creeperarroweffects.CAE;
+import ru.ledev.creeperarroweffects.effects.ArrowEffect;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -153,6 +154,28 @@ public class MenuManager {
                 menuInventory.setItem(slot, effectItem);
             }
         }
+        Material clearItemMaterial;
+        try {
+            clearItemMaterial = Material.valueOf(cfg.getString("clear-material", "BARRIER").toUpperCase());
+        }
+        catch (IllegalArgumentException e) {
+            clearItemMaterial = Material.BARRIER;
+        }
+        ItemStack clearItem = new ItemStack(clearItemMaterial);
+        ItemMeta itemMeta = clearItem.getItemMeta();
+        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',
+                cfg.getString("clear-button-name",
+                        "&cОшибка локализации! Key: clear-button-name")));
+        itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        if (cfg.getBoolean("enchanted-clear-button")) {
+            itemMeta.addEnchant(Enchantment.ARROW_FIRE, 1, true);
+            itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        }
+        clearItem.setItemMeta(itemMeta);
+
+        int slot = rows*9 - 5;
+        menuButtons.add(new MenuButton(slot, null));
+        menuInventory.setItem(slot, clearItem);
 
         player.openInventory(menuInventory);
 
@@ -176,6 +199,16 @@ public class MenuManager {
                 if (b.slot != slot) continue;
                 ArrowEffect effect = b.effect;
                 Player player = (Player) inventory.getHolder();
+                if (effect  == null) {
+                    if (PlayerManager.getPlayerEffect(player) == null) {
+                        player.sendMessage(CAE.getLocale("no-effect-for-clear"));
+                    }
+                    else {
+                        PlayerManager.removePlayerEffect(player);
+                        player.sendMessage(CAE.getLocale("effect-cleared"));
+                    }
+                    return true;
+                }
                 if (!player.hasPermission("creeperarroweffects.effect." + effect.toString().toLowerCase())) {
                     player.sendMessage(CAE.getLocale("not-enough-permission"));
                     return true;

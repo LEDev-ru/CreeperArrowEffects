@@ -1,4 +1,4 @@
-package ru.ledev.creeperarroweffects.util;
+package ru.ledev.creeperarroweffects.effects;
 
 import org.bukkit.Particle;
 

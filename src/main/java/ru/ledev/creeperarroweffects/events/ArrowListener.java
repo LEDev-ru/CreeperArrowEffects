@@ -6,8 +6,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
-import ru.ledev.creeperarroweffects.util.EffectsManager;
-import ru.ledev.creeperarroweffects.util.PlayerManager;
+import ru.ledev.creeperarroweffects.effects.EffectsManager;
+import ru.ledev.creeperarroweffects.managers.PlayerManager;
 
 public class ArrowListener implements Listener {
 

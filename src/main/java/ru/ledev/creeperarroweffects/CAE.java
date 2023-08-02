@@ -5,7 +5,7 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.ledev.creeperarroweffects.commands.CAECommand;
 import ru.ledev.creeperarroweffects.events.*;
-import ru.ledev.creeperarroweffects.util.EffectsManager;
+import ru.ledev.creeperarroweffects.effects.EffectsManager;
 
 public final class CAE extends JavaPlugin {
 
@@ -23,16 +23,14 @@ public final class CAE extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 
         getCommand("creeperarroweffects").setExecutor(new CAECommand());
+        getCommand("creeperarroweffects").setTabCompleter(new CAECommand());
 
     }
 
     @Override
     public void onDisable() {
-
         HandlerList.unregisterAll(this);
-
         EffectsManager.stopAllTasks();
-
     }
 
     public static CAE getInstance() {

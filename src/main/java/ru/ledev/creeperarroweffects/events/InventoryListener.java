@@ -4,7 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.*;
-import ru.ledev.creeperarroweffects.util.MenuManager;
+import ru.ledev.creeperarroweffects.managers.MenuManager;
 
 public class InventoryListener implements Listener {
 

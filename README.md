@@ -4,13 +4,14 @@ Free plugin that adds the ability to allow server players to shoot arrows with a
 ---
 ### Functional overview:
 
-[![](http://img.youtube.com/vi/Jj8vQ9s8nuU/0.jpg)](http://www.youtube.com/watch?v=Jj8vQ9s8nuU)
+[(there is no video about version 1.1 yet) ![](http://img.youtube.com/vi/Jj8vQ9s8nuU/0.jpg)](http://www.youtube.com/watch?v=Jj8vQ9s8nuU)
 
 ---
 ### Commands:
 
  - /ae - Open effects menu
  - /ae <effect\> - Select effect
+ - /ae clear - Clear effect
  - /ae reload - Reload config
 
 ---

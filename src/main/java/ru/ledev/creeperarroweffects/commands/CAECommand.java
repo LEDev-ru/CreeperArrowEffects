@@ -2,15 +2,18 @@ package ru.ledev.creeperarroweffects.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import ru.ledev.creeperarroweffects.CAE;
-import ru.ledev.creeperarroweffects.util.ArrowEffect;
-import ru.ledev.creeperarroweffects.util.MenuManager;
-import ru.ledev.creeperarroweffects.util.PlayerManager;
+import ru.ledev.creeperarroweffects.effects.ArrowEffect;
+import ru.ledev.creeperarroweffects.managers.MenuManager;
+import ru.ledev.creeperarroweffects.managers.PlayerManager;
 
-public class CAECommand implements CommandExecutor {
+import java.util.ArrayList;
+import java.util.List;
+
+public class CAECommand implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -47,6 +50,16 @@ public class CAECommand implements CommandExecutor {
         }
 
         if (args.length == 1) {
+            if (args[0].equalsIgnoreCase("clear")) {
+                if (PlayerManager.getPlayerEffect(player) == null) {
+                    player.sendMessage(CAE.getLocale("no-effect-for-clear"));
+                }
+                else {
+                    PlayerManager.removePlayerEffect(player);
+                    player.sendMessage(CAE.getLocale("effect-cleared"));
+                }
+                return true;
+            }
             String effectName = args[0].toUpperCase();
             try {
                 ArrowEffect effect = ArrowEffect.valueOf(effectName);
@@ -66,5 +79,23 @@ public class CAECommand implements CommandExecutor {
         MenuManager.openMenu(player);
 
         return true;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+
+        if (args.length == 1) {
+            List<String> result = new ArrayList<>();
+            result.add("clear");
+            for (ArrowEffect effect : ArrowEffect.values()) {
+                if (CAE.getInstance().getConfig().getBoolean(
+                        "effects." + effect.name().toLowerCase() + ".enabled")) {
+                    result.add(effect.name().toLowerCase());
+                }
+            }
+            return result;
+        }
+
+        return null;
     }
 }

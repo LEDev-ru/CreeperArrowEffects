@@ -1,6 +1,7 @@
-package ru.ledev.creeperarroweffects.util;
+package ru.ledev.creeperarroweffects.managers;
 
 import org.bukkit.entity.Player;
+import ru.ledev.creeperarroweffects.effects.ArrowEffect;
 
 import java.util.HashMap;
 import java.util.Map;
