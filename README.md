@@ -4,7 +4,8 @@ Free plugin that adds the ability to allow server players to shoot arrows with a
 ---
 ### Functional overview:
 
-[(there is no video about version 1.1 yet) ![](http://img.youtube.com/vi/Jj8vQ9s8nuU/0.jpg)](http://www.youtube.com/watch?v=Jj8vQ9s8nuU)
+[![](http://img.youtube.com/vi/Jj8vQ9s8nuU/0.jpg)](http://www.youtube.com/watch?v=Jj8vQ9s8nuU)
+(there is no video about version 1.1 yet)
 
 ---
 ### Commands:
