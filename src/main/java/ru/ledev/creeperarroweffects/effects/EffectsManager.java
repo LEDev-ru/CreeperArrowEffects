@@ -13,6 +13,7 @@ import java.util.List;
 public class EffectsManager {
 
     private static final List<ArrowInfo> arrows = new ArrayList<>();
+    private static final List<BukkitTask> effectsStopTasks = new ArrayList<>();
 
     public static void addArrow(Arrow arrow, ArrowEffect effect) {
 
@@ -27,11 +28,18 @@ public class EffectsManager {
 
         long delay = cfg.getLong("effects." + name + ".delay-ticks", 1);
         int count = cfg.getInt("effects." + name + ".particles-count", 1);
+        long autoCancelTime = cfg.getLong("auto-stop-time", 30) * 20L;
 
         BukkitTask task = CAE.getInstance().getServer().getScheduler().runTaskTimer(
-                CAE.getInstance(), () -> world.spawnParticle(particle, arrow.getLocation(), count), delay, delay);
+                CAE.getInstance(), () -> world.spawnParticle(particle, arrow.getLocation(), count), 0, delay);
+
+        BukkitTask cancelingTask = CAE.getInstance().getServer().getScheduler().runTaskLater(
+                CAE.getInstance(), () -> {
+                    if (task != null) task.cancel();
+                }, autoCancelTime);
 
         arrows.add(new ArrowInfo(arrow, task));
+        effectsStopTasks.add(cancelingTask);
     }
 
     public static void removeArrow(Arrow arrow) {
@@ -43,6 +51,7 @@ public class EffectsManager {
     public static void stopAllTasks() {
         for (ArrowInfo arrowInfo : arrows)
             if (arrowInfo.task != null) arrowInfo.task.cancel();
+        for (BukkitTask task : effectsStopTasks) if (task != null) task.cancel();
     }
 
     private static class ArrowInfo {

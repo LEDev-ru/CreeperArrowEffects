@@ -1,5 +1,5 @@
 #
-# CAE (CreeperArrowEffects) v1.1 by CreeperStudio (LEDev)
+# CAE (CreeperArrowEffects) v1.2 by CreeperStudio (LEDev)
 #
 #                 vk.com/creeper_studio
 #               vk.com/leokrech | ledev.ru
@@ -24,6 +24,9 @@ clear-button-name: "&7Сбросить эффект"
 
 # Переливание кнопки сброса эффекта в меню, как зачарованного
 enchanted-clear-button: true
+
+# Авто-отключение эффекта (в секундах, для оптимизации и защиты от уязвимости, которая может нагружать сервер)
+auto-stop-time: 30
 
 # Включить/выключить и настроить эффекты
 effects:
