@@ -1,12 +1,10 @@
 # CreeperArrowEffects
 ![](https://ledev.ru/files/github/CreeperArrowEffectsPOSTER.png)
-Free plugin that adds the ability to allow server players to shoot arrows with a selected effect by LEDev ([GitHub](https://github.com/LEDev-ru), [VK](https://vk.com/leokrech), [Site](https://ledev.ru)) from [CreeperStudio](https://vk.com/creeper_studio)
+Free plugin that adds the ability to allow server players to shoot arrows with a selected effect by LEDev ([GitHub](https://github.com/LEDev-ru), [Site](https://ledev.ru))
 ---
 ### Functional overview:
 
-[![](http://img.youtube.com/vi/Jj8vQ9s8nuU/0.jpg)](http://www.youtube.com/watch?v=Jj8vQ9s8nuU)
-
-(there is no video about versions 1.1 and 1.2 yet)
+Video is not available now =(
 
 ---
 ### Commands:
